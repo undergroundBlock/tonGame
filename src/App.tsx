@@ -8,6 +8,12 @@ import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
+import TopBar from "./components/TopBar";  // Import TopBar component
+import BottomBar from "./components/BottomBar";  // Import BottomBar component
+import Clicker from "./components/ClickerComp";  // Import Clicker component
+import { useState } from "react";
+import './index.css';
+
 
 const StyledApp = styled.div`
   background-color: #e8e8e8;
@@ -28,10 +34,17 @@ const AppContainer = styled.div`
 
 function App() {
   const { network } = useTonConnect();
-
+  const userLevel = 1;  // Example user level, replace with actual user level
+  const [points, setPoints] = useState(29857775);
+  const [energy, setEnergy] = useState(2532);
+  const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
+  const pointsToAdd = 12;
+  const energyToReduce = 12;
+  
   return (
     <StyledApp>
       <AppContainer>
+        <TopBar />  {/* Add TopBar component */}
         <FlexBoxCol>
           <FlexBoxRow>
             <TonConnectButton />
@@ -46,7 +59,9 @@ function App() {
           <Counter />
           <TransferTon />
           <Jetton />
+          <Clicker level={userLevel} />  {/* Add Clicker component */}
         </FlexBoxCol>
+        <BottomBar />  {/* Add BottomBar component */}
       </AppContainer>
     </StyledApp>
   );
