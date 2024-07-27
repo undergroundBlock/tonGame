@@ -35,11 +35,11 @@ const AppContainer = styled.div`
 function App() {
   const { network } = useTonConnect();
   // const userLevel = 1;  // Example user level, replace with actual user level
-  const [points, setPoints] = useState(29857775);
-  const [energy, setEnergy] = useState(2532);
-  const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 12;
-  const energyToReduce = 12;
+  // const [points, setPoints] = useState(29857775);
+  // const [energy, setEnergy] = useState(2532);
+  // const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
+  // const pointsToAdd = 12;
+  // const energyToReduce = 12;
   
   return (
     <StyledApp>
