@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-const Clicker = ({ level }) => {
-  const [coins, setCoins] = useState(0);
-  const [clicks, setClicks] = useState(0);
-  const [lastClickTime, setLastClickTime] = useState(Date.now());
+// Define the type for the component's props
+interface ClickerProps {
+  level: number;
+}
+
+const Clicker: React.FC<ClickerProps> = ({ level }) => {
+  const [coins, setCoins] = useState<number>(0);
+  const [clicks, setClicks] = useState<number>(0);
+  const [lastClickTime, setLastClickTime] = useState<number>(Date.now());
 
   const handleClick = () => {
     const now = Date.now();
+
     if (clicks < level && (now - lastClickTime >= 10800000)) {
       setClicks(clicks + 1);
       setCoins(coins + 1);
